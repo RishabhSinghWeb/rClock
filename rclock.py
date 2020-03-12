@@ -1,25 +1,25 @@
 import time,sys
 from datetime import datetime,date
 
-min_ping,max_ping,avg_count,avg,dif_avg = 1,0,0,0,0
-today=datetime.date(datetime.now())
-finish=date(2028,11,17) # your project deadline
+min_ping,max_ping,avg_count,avg_ping,dif_avg = 1,0,0,0,0
+today = datetime.date(datetime.now())
+finish = date(2028,11,17) # your project deadline
 while 1:
 	starting_time = time.time()
-	h=int(datetime.now().strftime("%H")) # hours
-	m=int(datetime.now().strftime("%M")) # minutes
-	s=int(datetime.now().strftime("%S"))+time.time()%1 # seconds upto nano seconds
-	tm= h*60+m+s/60 # today minutes
-	ts= h*3600+m*60+s # today seconds	
-	rh=h+22 if h<2 else h-2 # r hours
+	h =int(datetime.now().strftime("%H")) # hours
+	m = int(datetime.now().strftime("%M")) # minutes
+	s = int(datetime.now().strftime("%S"))+time.time()%1 # seconds upto nano seconds
+	tm = h*60+m+s/60 # today minutes
+	ts = h*3600+m*60+s # today seconds	
+	rh = h+22 if h<2 else h-2 # r hours
 	rnow = rh*4.1666666667+m*0.06944444+s*0.001157 # 100/24/60/60
-	fd=abs(finish-today).days # finish date
+	fd = abs(finish - today).days # finish date
 	
 	ending_time = time.time()
-	ping =1000*(ending_time -starting_time)
-	avg_copy = avg
-	avg= (avg*avg_count+ping)/(avg_count+1)
-	dif_ping =avg-avg_copy
+	ping = 1000*(ending_time - starting_time)
+	avg_ping_copy = avg_ping
+	avg = (avg_ping*avg_count+ping)/(avg_count+1)
+	dif_ping = avg_ping - avg_copy
 	dif_ping_copy = dif_ping
 	dif_avg = (dif_avg*avg_count+dif_ping)/(avg_count+1)
 	avg_count+=1	
@@ -43,9 +43,11 @@ rmin {rh*60+m+s/60:09.4f} /1439.9999
        {avg_ping:.2f} avg ping ms  ''')
 	
 	time.sleep(0.032)
-	sys.stdout.write('\x1b[1A'*20)
-#	os.system( 'cls' )
-#	for x in range(15):
+	
+	# clear output
+	sys.stdout.write('\x1b[1A'*20) # move cursor to the top
+#	os.system( 'cls' ) # clear screen
+#	for x in range(15): # rewrite spaces
 #		sys.stdout.write('\x1b[1A'*2)		
 #		sys.stdout.write(' '*36+'\n')
 #		print(chr(127)*100)
