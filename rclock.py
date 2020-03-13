@@ -19,7 +19,7 @@ while 1:
 	ending_time = time.time()
 	ping = 1000*(ending_time - starting_time)
 	avg_ping_copy = avg_ping
-	avg = (avg_ping*avg_count+ping)/(avg_count+1)
+	avg_ping = (avg_ping*avg_count+ping)/(avg_count+1)
 	dif_ping = avg_ping - avg_copy
 	dif_ping_copy = dif_ping
 	dif_avg = (dif_avg*avg_count+dif_ping)/(avg_count+1)
