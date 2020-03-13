@@ -1,5 +1,5 @@
 # rClock
-For those who can't manage their time easily by Gregorian clock
+For those who can't manage their time easily by Gregorian clock ,Eg. freelancers, entrepreneurs, etc
 
 rClock converts 24 hours clock to 100 rhours clock with every unit in decimal
 
