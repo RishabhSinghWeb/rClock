@@ -1,10 +1,11 @@
-import time,sys
+import time,sys,os
 from datetime import datetime,date
 
 min_ping,max_ping,avg_count,avg_ping,dif_avg = 1,0,0,0,0
 today = datetime.date(datetime.now())
 finish = date(2028,11,17) # your project deadline
 while 1:
+\tos.system('cls') # clear screen
 	starting_time = time.time()
 	h =int(datetime.now().strftime("%H")) # hours
 	m = int(datetime.now().strftime("%M")) # minutes
@@ -46,7 +47,6 @@ rmin {rh*60+m+s/60:09.4f} /1439.9999
 	
 	# clear output
 	sys.stdout.write('\x1b[1A'*20) # move cursor to the top
-#	os.system( 'cls' ) # clear screen
 #	for x in range(15): # rewrite spaces
 #		sys.stdout.write('\x1b[1A'*2)		
 #		sys.stdout.write(' '*36+'\n')
